@@ -1,0 +1,276 @@
+{% load static %}
+<html lang="en">
+<head>
+    <title>Table 06</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+<div id="main_Page_Loader"
+     style="position: fixed;z-index: 9999;width: 100%;height: 100%;display: flex;justify-content: center;align-items: center; top: 0;left: 0;background: rgba(255, 255, 255, 0.7);">
+    <div class="spinner-border text-primary" role="status"
+         style="width: 3rem;height: 3rem;margin: auto;border: 0.3em solid transparent; border-top-color: #6454D6 !important; border-right-color: #6454D6 !important;">
+        <span class="sr-only"></span>
+    </div>
+</div>
+<section class="ftco-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6 text-center mb-4">
+                <h2 class="heading-section display-1">Real Estate Portal</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="table-wrap">
+                    <table class="table">
+                        <thead class="thead-primary">
+                        <tr>
+                            <th>&nbsp;</th>
+                            <th>Website Name</th>
+                            <th>Type</th>
+                            <th>CSV</th>
+                            <th>Json</th>
+                            <th>&nbsp;</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr class="alert" role="alert">
+                            <td>
+                                <div class="img"
+                                     style="background-image: url({% static 'images/amico.png' %});"></div>
+                            </td>
+                            <td>
+                                <div class="email">
+                                    <span>Aimco</span>
+                                    <span>This is the real estate website!</span>
+                                </div>
+                            </td>
+                            <td>Apartments</td>
+                            <td>
+                                <a href="https://scrapyfilesjson.s3.eu-north-1.amazonaws.com/AIV_Data.csv" class="download-link">Download</a>
+                            </td>
+                            <td><a href="https://scrapyfilesjson.s3.eu-north-1.amazonaws.com/AIV_Data.json" class="download-link">Download</a></td>
+                            <td>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true"><i class="fa fa-close"></i></span>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr class="alert" role="alert">
+                            <td>
+                                <div class="img"
+                                     style="background-image: url({% static 'images/aviloncommunities.png' %});"></div>
+                            </td>
+                            <td>
+                                <div class="email">
+                                    <span>AvalonBay Communities</span>
+                                    <span>This is the real estate website!</span>
+                                </div>
+                            </td>
+                            <td>Apartments</td>
+                            <td>
+                                <a href="https://scrapyfilesjson.s3.eu-north-1.amazonaws.com/AVB_Data.csv" class="download-link">Download</a>
+                            </td>
+                            <td><a href="https://scrapyfilesjson.s3.eu-north-1.amazonaws.com/AVB_Data.json" class="download-link">Download</a></td>
+                            <td>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true"><i class="fa fa-close"></i></span>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr class="alert" role="alert">
+                                <td>
+                                    <div class="img" style="background-image: url({% static 'images/camden.png' %});"></div>
+                                </td>
+                                <td>
+                                    <div class="email">
+                                        <span>Camden Property Trust</span>
+                                        <span>This is the real estate website!</span>
+                                    </div>
+                                </td>
+                                <td>Apartments</td>
+                                <td>
+                                    <a href="https://scrapyfilesjson.s3.eu-north-1.amazonaws.com/CPT_Data.csv" class="download-link">Download</a>
+                                </td>
+                                <td><a href="https://scrapyfilesjson.s3.eu-north-1.amazonaws.com/CPT_Data.json" class="download-link">Download</a></td>
+                                <td>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true"><i class="fa fa-close"></i></span>
+                                    </button>
+                                </td>
+                            </tr>
+                        <tr class="alert" role="alert">
+                                <td>
+                                    <div class="img" style="background-image: url({% static 'images/equity_apartments.png' %});"></div>
+                                </td>
+                                <td>
+                                    <div class="email">
+                                        <span>Equity Residential</span>
+                                        <span>This is the real estate website!</span>
+                                    </div>
+                                </td>
+                                <td>Apartments</td>
+                                <td>
+                                    <a href="https://scrapyfilesjson.s3.eu-north-1.amazonaws.com/EQR_Data.csv" class="download-link">Download</a>
+                                </td>
+                                <td><a href="https://scrapyfilesjson.s3.eu-north-1.amazonaws.com/EQR_Data.json" class="download-link">Download</a></td>
+                                <td>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true"><i class="fa fa-close"></i></span>
+                                    </button>
+                                </td>
+                            </tr>
+                        <tr class="alert" role="alert">
+                                <td>
+                                    <div class="img" style="background-image: url({% static 'images/essex.png' %});"></div>
+                                </td>
+                                <td>
+                                    <div class="email">
+                                        <span>Essex Property Trust</span>
+                                        <span>This is the real estate website!</span>
+                                    </div>
+                                </td>
+                                <td>Apartments</td>
+                                <td>
+                                    <a href="https://scrapyfilesjson.s3.eu-north-1.amazonaws.com/ESS_Data.csv" class="download-link">Download</a>
+                                </td>
+                                <td><a href="https://scrapyfilesjson.s3.eu-north-1.amazonaws.com/ESS_Data.json" class="download-link">Download</a></td>
+                                <td>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true"><i class="fa fa-close"></i></span>
+                                    </button>
+                                </td>
+                            </tr>
+                        <tr class="alert" role="alert">
+                                <td>
+                                    <div class="img" style="background-image: url({% static 'images/maa.png' %});"></div>
+                                </td>
+                                <td>
+                                    <div class="email">
+                                        <span>Mid-America Apartment Communities</span>
+                                        <span>This is the real estate website!</span>
+                                    </div>
+                                </td>
+                                <td>Apartments</td>
+                                <td>
+                                    <a href="https://scrapyfilesjson.s3.eu-north-1.amazonaws.com/MAA_Data.csv" class="download-link">Download</a>
+                                </td>
+                                <td><a href="https://scrapyfilesjson.s3.eu-north-1.amazonaws.com/MAA_Data.json" class="download-link">Download</a></td>
+                                <td>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true"><i class="fa fa-close"></i></span>
+                                    </button>
+                                </td>
+                            </tr>
+                        <tr class="alert" role="alert">
+                                <td>
+                                    <div class="img" style="background-image: url({% static 'images/udr.png' %});"></div>
+                                </td>
+                                <td>
+                                    <div class="email">
+                                        <span>UDR, Inc.</span>
+                                        <span>This is the real estate website!</span>
+                                    </div>
+                                </td>
+                                <td>Apartments</td>
+                                <td>
+                                    <a href="https://scrapyfilesjson.s3.eu-north-1.amazonaws.com/UDR_Data.csv" class="download-link">Download</a>
+                                </td>
+                                <td><a href="https://scrapyfilesjson.s3.eu-north-1.amazonaws.com/UDR_Data.json" class="download-link">Download</a></td>
+                                <td>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true"><i class="fa fa-close"></i></span>
+                                    </button>
+                                </td>
+                            </tr>
+                        <tr class="alert" role="alert">
+                                <td>
+                                    <div class="img" style="background-image: url({% static 'images/gaming.png' %});"></div>
+                                </td>
+                                <td>
+                                    <div class="email">
+                                        <span>Gaming and Leisure Properties</span>
+                                        <span>This is the real estate website!</span>
+                                    </div>
+                                </td>
+                                <td>Apartments</td>
+                                <td>
+                                    <a href="https://scrapyfilesjson.s3.eu-north-1.amazonaws.com/GLPI_Data.csv" class="download-link">Download</a>
+                                </td>
+                                <td><a href="https://scrapyfilesjson.s3.eu-north-1.amazonaws.com/GLPI_Data.json" class="download-link">Download</a></td>
+                                <td>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true"><i class="fa fa-close"></i></span>
+                                    </button>
+                                </td>
+                            </tr>
+                        <tr class="alert" role="alert">
+                                <td>
+                                    <div class="img" style="background-image: url({% static 'images/vici.png' %});"></div>
+                                </td>
+                                <td>
+                                    <div class="email">
+                                        <span>Vici Properties</span>
+                                        <span>This is the real estate website!</span>
+                                    </div>
+                                </td>
+                                <td>Apartments</td>
+                                <td>
+                                    <a href="https://scrapyfilesjson.s3.eu-north-1.amazonaws.com/VICI_Data.csv" class="download-link">Download</a>
+                                </td>
+                                <td><a href="https://scrapyfilesjson.s3.eu-north-1.amazonaws.com/VICI_Data.json" class="download-link">Download</a></td>
+                                <td>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true"><i class="fa fa-close"></i></span>
+                                    </button>
+                                </td>
+                            </tr>
+                        <tr class="alert" role="alert">
+                                <td>
+                                    <div class="img" style="background-image: url({% static 'images/jbg_smith.png' %});"></div>
+                                </td>
+                                <td>
+                                    <div class="email">
+                                        <span>JBG Smith</span>
+                                        <span>This is the real estate website!</span>
+                                    </div>
+                                </td>
+                                <td>Apartments</td>
+                                <td>
+                                    <a href="https://scrapyfilesjson.s3.eu-north-1.amazonaws.com/JBGS_Data.csv" class="download-link">Download</a>
+                                </td>
+                                <td><a href="https://scrapyfilesjson.s3.eu-north-1.amazonaws.com/JBGS_Data.json" class="download-link">Download</a></td>
+                                <td>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true"><i class="fa fa-close"></i></span>
+                                    </button>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/popper.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+<script>
+    $(document).ready(function() {
+        // Hide the loader initially
+        $("#main_Page_Loader").hide();
+
+    });
+</script>
+
+</body>
+</html>
