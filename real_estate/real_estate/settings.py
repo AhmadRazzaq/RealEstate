@@ -52,6 +52,7 @@ DATABASES = {
         'PORT': '25060',
     }
 }
+
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
