@@ -1,0 +1,143 @@
+{% load static %}
+<html lang="en">
+<head>
+    <title>Table 06</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+<div id="main_Page_Loader"
+     style="position: fixed;z-index: 9999;width: 100%;height: 100%;display: flex;justify-content: center;align-items: center; top: 0;left: 0;background: rgba(255, 255, 255, 0.7);">
+    <div class="spinner-border text-primary" role="status"
+         style="width: 3rem;height: 3rem;margin: auto;border: 0.3em solid transparent; border-top-color: #6454D6 !important; border-right-color: #6454D6 !important;">
+        <span class="sr-only"></span>
+    </div>
+</div>
+<section class="ftco-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6 text-center mb-4">
+                <h2 class="heading-section display-1">Events</h2>
+            </div>
+        </div>
+        <div class="row mb-4" style="margin-left:140px">
+            <div class="col-md-12">
+                <div class="table-wrap">
+                    <div class="form-row">
+                        <div class="col">
+                            <input type="text" id="organizerName" class="form-control" placeholder="Organizer Name">
+                        </div>
+                        <div class="col">
+                            <select id="cityName" class="form-control">
+                                <option value="chicago">Chicago</option>
+                                <option value="boston">Boston</option>
+                                <option value="providence">Providence</option>
+                                <option value="medford">Medford</option>
+                                <option value="brighton">Brighton</option>
+                                <option value="somerville">Somerville</option>
+                                <option value="oak park">Oak Park</option>
+                                <option value="north las vegas">North Las Vegas</option>
+                                <option value="las vegas">Las Vegas</option>
+                                <option value="berwyn">Berwyn</option>
+
+                            </select>
+                        </div>
+                        <div class="col">
+                            <select id="sourceName" class="form-control">
+                                <option value="tixr_data">Tixr</option>
+                                <option value="dice_data1">Dice</option>
+                                <option value="eventbrite_data">EventBrite</option>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <button type="button" class="btn btn-primary" onclick="submitForm()">Request</button>
+                        </div>
+                        <div class="col" id="download_button" style="display:none;">
+                            <button type="button" class="btn btn-primary" onclick="downloadButton()">Download</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="load_events_data"></div>
+    </div>
+</section>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/popper.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+<script>
+    $(document).ready(function() {
+        // Hide the loader initially
+        $("#main_Page_Loader").hide();
+    });
+
+    function submitForm() {
+        var organizerName = $('#organizerName').val();
+        var cityName = $('#cityName').val();
+        var sourceName = $('#sourceName').val();
+        $("#main_Page_Loader").show();
+        $.ajax({
+            type: 'POST',
+            url: '{% url "call_to_fetch_results" %}', // Replace with your Django view URL
+            data: {
+                'organizer_name': organizerName,
+                'city_name': cityName,
+                'source_name': sourceName,
+                'csrfmiddlewaretoken': '{{ csrf_token }}' // Include CSRF token for security
+            },
+            success: function(response) {
+                console.log('Organizer Name:', organizerName);
+                console.log('City Name:', cityName);
+                console.log('Source Name:', sourceName);
+                console.log('Response:', response);
+                $("#load_events_data").html(response["listingPageHtml"]);
+                document.getElementById('download_button').style.display = 'block';
+                $("#main_Page_Loader").hide();
+            },
+            error: function(error) {
+                console.error('Error:', error);
+            }
+        });
+    }
+</script>
+<script>
+        function downloadButton() {
+        $("#main_Page_Loader").show();
+        fetch('{% url "download_Data_into_csv" %}', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => {
+            if (response.ok) {
+                return response.blob();
+            }
+            throw new Error('Network response was not ok.');
+        })
+        .then(blob => {
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.style.display = 'none';
+            a.href = url;
+            a.download = 'data.csv';
+            document.body.appendChild(a);
+            a.click();
+            window.URL.revokeObjectURL(url);
+            document.getElementById('download_button').style.display = 'none';
+            $("#main_Page_Loader").hide();
+        })
+        .catch(error => {
+            console.error('There has been a problem with your fetch operation:', error);
+            $("#main_Page_Loader").hide();
+        });
+    }
+</script>
+</body>
+</html>

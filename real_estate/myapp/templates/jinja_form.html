@@ -1,0 +1,76 @@
+{% if source == 'tixr_data' %}
+<div class="container">
+    <div class="row">
+        {% for event in computed_Data %}
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <img src="{{ event.ImageUrl }}" class="card-img-top" alt="{{ event.Title }}" style="height:348px;">
+                <h5 style="padding:1.15rem;">{{ event.Title }}</h5>
+
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><strong>Address:</strong> {{ event.Address }}</li>
+                    <li class="list-group-item"><strong>Phone:</strong> {{ event.Phone }}</li>
+                    <li class="list-group-item"><strong>Email:</strong> <a href="mailto:{{ event.Email }}">{{ event.Email }}</a></li>
+                    <li class="list-group-item"><strong>Date:</strong> {{ event.Date }}</li>
+                    <li class="list-group-item"><strong>Prices:</strong>
+                        <ul>
+                            {% for price in event.Prices %}
+                            <li>{{ price.Name }}: ${{ price.Price }}</li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                    <li class="list-group-item"><strong>Website:</strong> <a href="{{ event.Website }}" target="_blank">{{ event.Website }}</a></li>
+                    <li class="list-group-item"><strong>More Info:</strong> <a href="{{ event.URL }}" target="_blank">{{ event.URL }}</a></li>
+                </ul>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% elif source == 'dice_data1' %}
+<div class="container">
+    <div class="row">
+        {% for event in computed_Data %}
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <img src="{{ event.ImageUrl }}" class="card-img-top" alt="{{ event.Title }}" style="height:348px;">
+                <h5 style="padding:1.15rem;">{{ event.Title }}</h5>
+
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><strong>Address:</strong> {{ event.Location }}</li>
+                    <li class="list-group-item"><strong>Date:</strong> {{ event.Date }}</li>
+                    <li class="list-group-item"><strong>Prices:</strong>
+                        {{ event.Price }}
+                    </li>
+                    <li class="list-group-item"><strong>About:</strong>{{ event.About }}</li>
+                </ul>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% else %}
+<div class="container">
+    <div class="row">
+        {% for event in computed_Data %}
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <img src="{{ event.ImageUrl }}" class="card-img-top" alt="{{ event.Title }}" style="height:348px;">
+                <h5 style="padding:1.15rem;">{{ event.Title }}</h5>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><strong>Address:</strong> {{ event.Location }}</li>
+                    <li class="list-group-item"><strong>Date:</strong> {{ event.DateTime }}</li>
+                    <li class="list-group-item"><strong>Prices:</strong>
+                        <ul>
+                            {% for price in event.TicketPackages %}
+                            <li>{{ price.Name }}: ${{ price.Price }} & Fee {{ price.Fee }}</li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
