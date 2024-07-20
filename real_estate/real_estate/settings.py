@@ -48,7 +48,7 @@ DATABASES = {
         'NAME': 'defaultdb',
         'USER': 'doadmin',
         'PASSWORD': 'AVNS_drUfi0SLPB679rRV-7C',
-        'HOST': 'db-mysql-nyc3-02478-do-user-13131608-0.a.db.ondigitalocean.com',
+        'HOST': '',
         'PORT': '25060',
     }
 }
