@@ -52,6 +52,7 @@ CACHES = {
 
 CACHE_BACKEND = 'default'
 WSGI_APPLICATION = 'real_estate.wsgi.application'
+
 DATABASES = {
     'default': {
         'ENGINE': '',
