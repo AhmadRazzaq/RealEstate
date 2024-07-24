@@ -19,14 +19,14 @@ def events_view(request):
     return render(request, 'events_page.html')
 
 
-def fetch_data_according_to_query(database_name, city_name):
+def fetch_data_according_to_query(organizer_name, database_name, city_name):
     if database_name == 'tixr_data':
-        query = f'SELECT * FROM defaultdb.{database_name} WHERE Address LIKE %s'
+        query = f'SELECT * FROM defaultdb.{database_name} WHERE Address LIKE %s AND Venue LIKE %s'
     else:
-        query = f'SELECT * FROM defaultdb.{database_name} WHERE Location LIKE %s'
+        query = f'SELECT * FROM defaultdb.{database_name} WHERE Location LIKE %s AND Venue LIKE %s'
 
     with connection.cursor() as cursor:
-        cursor.execute(query, ('%' + city_name + '%',))
+        cursor.execute(query, ('%' + city_name + '%', '%' + organizer_name + '%'))
         results = cursor.fetchall()
         columns = [col[0] for col in cursor.description]
         data_returned = [dict(zip(columns, row)) for row in results]
@@ -39,8 +39,8 @@ def download_Data_into_csv(request):
     data = cache.get("last_data")
     if not data:
         return JsonResponse({"Message": "No data found"}, status=404)
-    for iteration in data[:1]:
-        print("--->", iteration)
+    # for iteration in data[:1]:
+    #     print("--->", iteration)
         # Create the HttpResponse object with the appropriate CSV header.
     response = HttpResponse(content_type='text/csv')
     response['Content-Disposition'] = 'attachment; filename="data.csv"'
@@ -64,7 +64,7 @@ def call_to_fetch_results(request):
     print(f"Organizer Name: {organizer_name}")
     print(f"City Name: {city_name}")
     print(f"Source Name: {source_name}")
-    computed_data = fetch_data_according_to_query(source_name, city_name)
+    computed_data = fetch_data_according_to_query(organizer_name, source_name, city_name)
     if source_name == 'eventbrite_data':
         for iteration in computed_data:
             iteration['ImageUrl'] = "https://codewithninja.com/Image/noImage.png"
