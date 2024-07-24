@@ -3,11 +3,9 @@ import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-k+y-2@m9vxw!&9k1xwz7r)m@0n*m&8z%y8p^12)-t4phqb0!+e'
-<<<<<<< HEAD
+
 DEBUG = True
-=======
 # DEBUG = True
->>>>>>> e5989ac (Initial commit)
 ALLOWED_HOSTS = ["*"]
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -54,16 +52,9 @@ CACHES = {
 
 CACHE_BACKEND = 'default'
 WSGI_APPLICATION = 'real_estate.wsgi.application'
-<<<<<<< HEAD
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-=======
-
 DATABASES = {
     'default': {
         'ENGINE': '',
->>>>>>> e5989ac (Initial commit)
         'NAME': '',
         'USER': '',
         'PASSWORD': '',
